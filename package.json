@@ -1,0 +1,25 @@
+{
+  "name": "viaje-por-el-adn-3d",
+  "version": "1.0.0",
+  "description": "Interactive 3D web experience exploring DNA structure for the Berta Von Glumer school.",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "keywords": [
+    "html5",
+    "css3",
+    "javascript",
+    "three.js",
+    "gsap",
+    "tailwind-css",
+    "3d-web",
+    "interactive-experience",
+    "portfolio"
+  ],
+  "author": "Marco Escalona <marcuspicazo@outlook.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}

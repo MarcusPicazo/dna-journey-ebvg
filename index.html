@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Marco Escalona" />
+    <meta name="copyright" content="© 2026 Marco Escalona" />
+    <meta name="description" content="Proyecto de desarrollo web creado por Marco Escalona sobre la estructura del ADN para EBVG." />
+    <meta name="keywords" content="Marco Escalona, Front-End Developer, Web Developer, Three.js, GSAP, 3D Web, ADN" />
+    
+    <title>Viaje por el ADN EBVG - Colegio Berta von Glümer</title>
+
+     <link rel="icon" type="image/png" href="favicon.png" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="film-grain"></div>
+    <div class="technical-overlay"></div>
+
+    <div class="calibration top-10 left-1/2 -translate-x-1/2 uppercase tracking-[0.2em]">
+      Arch_Exp // DNA_Ref_03_BertaVonGlumer
+    </div>
+    <div class="calibration bottom-10 left-10">
+      COORD_X: <span id="val-x">0.00</span>
+    </div>
+    <div class="calibration bottom-10 right-10">
+      COORD_Y: <span id="val-y">0.00</span>
+    </div>
+
+    <div id="hud" class="hud-header">
+      <div class="brand">
+        <span>UNIDAD DE ESTUDIO CIENTÍFICO</span>
+        <h2>EBVG MOLECULAR</h2>
+      </div>
+      <div class="text-right">
+        <span class="block text-[8px] opacity-40 font-mono">SENSOR_READY // CALIBRATED</span>
+        <div class="h-[1px] w-32 bg-white/5 mt-1 overflow-hidden">
+          <div id="load-bar" class="h-full bg-orange-600 w-full origin-left"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="start-screen" class="ui-layer pointer-events-auto">
+      <div id="start-content" class="max-w-5xl px-20 border-l-[1px] border-white/5 flex flex-col items-center text-center">
+        <span class="text-orange-500 font-mono text-[10px] tracking-[0.8em] uppercase mb-8 block">Inscripción Académica</span>
+        <h1 class="main-title font-bold">
+          Explorador Molecular (Viaje ADN)
+          <span class="school-name">de la escuela berta von glumer</span>
+        </h1>
+        <p class="mt-12 max-w-lg text-lg leading-relaxed opacity-30 font-light italic serif">
+          Documentación digital de alta fidelidad para el estudio de la arquitectura genética humana. Una visualización técnica centrada en la precisión estructural.
+        </p>
+        <button class="btn-enter" onclick="startApp()">INICIAR ANÁLISIS</button>
+        <p class="start-subtitle" id="start-sub">.</p>
+        <p class="start-subtitle" id="start-sub">Por Marco Escalona</p>
+      </div>
+    </div>
+
+    <div id="info-popup" class="info-card">
+      <h3 id="card-title"></h3>
+      <p id="card-text"></p>
+      <div class="meta">
+        <div id="card-fact" class="mb-4"></div>
+        <button class="text-[9px] tracking-[0.4em] text-orange-400 font-bold uppercase hover:text-white transition-colors" onclick="closeInspector()">
+          [ CERRAR REGISTRO ]
+        </button>
+      </div>
+    </div>
+
+    <div id="scroll-tracker"><div id="scroll-fill"></div></div>
+
+    <div id="canvas-container"></div>
+    <div id="nodes-container" class="ui-layer"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

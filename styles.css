@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,400&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@300&display=swap");
+
+:root {
+  --graphite: #121417;
+  --copper: #c27b46;
+  --cian-dark: #2a4e59;
+  --paper: #e5e7eb;
+  --grid: rgba(255, 255, 255, 0.03);
+  --bone-white: #f8fafc;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--graphite);
+  color: var(--paper);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+.technical-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(
+      circle at center,
+      transparent 0%,
+      var(--graphite) 95%
+    ),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px, 50px 50px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.ui-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
+.hud-header {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 50;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  opacity: 0;
+}
+
+.brand h2 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.brand span {
+  font-family: "JetBrains Mono";
+  font-size: 0.6rem;
+  color: var(--copper);
+  display: block;
+  opacity: 0.8;
+}
+
+.dna-node {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scanner-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--bone-white);
+  border-radius: 50%;
+  opacity: 0.2;
+  transition: all 0.4s ease;
+}
+
+.info-card {
+  position: absolute;
+  width: 360px;
+  background: rgba(18, 20, 23, 0.95);
+  border-left: 3px solid var(--copper);
+  padding: 30px;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  z-index: 200;
+  backdrop-filter: blur(20px);
+  max-height: 80vh;
+  overflow-y: auto;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.info-card.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.info-card h3 {
+  font-family: "IBM Plex Serif", serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: var(--paper);
+}
+.info-card p {
+  font-family: "IBM Plex Serif", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #d1d1d6;
+  margin-bottom: 25px;
+}
+.info-card .meta {
+  font-family: "JetBrains Mono";
+  font-size: 0.75rem;
+  color: var(--copper);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 15px;
+}
+
+#start-screen {
+  background: var(--graphite);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+}
+
+#start-content {
+  transition: transform 0.5s ease-out;
+}
+
+.main-title {
+  font-size: 5rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+.school-name {
+  font-family: "IBM Plex Serif", serif;
+  font-style: italic;
+  font-weight: 300;
+  display: block;
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+.btn-enter {
+  margin-top: 60px;
+  border: 0.5px solid var(--copper);
+  padding: 18px 60px;
+  font-size: 0.9rem;
+  letter-spacing: 0.6em;
+  color: var(--copper);
+  transition: all 0.5s ease;
+  background: transparent;
+  text-transform: uppercase;
+}
+
+.btn-enter:hover {
+  background: var(--copper);
+  color: var(--graphite);
+  font-weight: bold;
+  transform: translateY(-2px);
+}
+
+.calibration {
+  position: fixed;
+  font-family: "JetBrains Mono";
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.15);
+  z-index: 50;
+}
+
+#scroll-tracker {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: 50;
+  opacity: 0;
+}
+
+#scroll-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--copper);
+}
